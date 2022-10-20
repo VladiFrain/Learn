@@ -1,12 +1,12 @@
 #include "header.h"
 using namespace std;
-//пример перечисляемого типа(enum)
+//РїСЂРёРјРµСЂ РїРµСЂРµС‡РёСЃР»СЏРµРјРѕРіРѕ С‚РёРїР°(enum)
 
 
 class PC
 {
 public:
-	//перечисление состояний PC
+	//РїРµСЂРµС‡РёСЃР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёР№ PC
 	enum PCState
 	{
 		OFF,
@@ -28,7 +28,7 @@ private:
 	PCState state;
 };
 
-void Enum()//консольная команда: -en
+void Enum()//РєРѕРЅСЃРѕР»СЊРЅР°СЏ РєРѕРјР°РЅРґР°: -en
 {
 	PC pc;
 	pc.SetState(PC::PCState::ON);
@@ -36,13 +36,13 @@ void Enum()//консольная команда: -en
 	switch (pc.GetState())
 	{
 	case PC::PCState::OFF:
-		cout << "PC выключен" << endl;
+		cout << "PC РІС‹РєР»СЋС‡РµРЅ" << endl;
 		break;
 	case PC::PCState::ON:
-		cout << "PC работает" << endl;
+		cout << "PC СЂР°Р±РѕС‚Р°РµС‚" << endl;
 		break;
 	case PC::PCState::SLEEP:
-		cout << "PC спит" << endl;
+		cout << "PC СЃРїРёС‚" << endl;
 		break;
 	}
 }

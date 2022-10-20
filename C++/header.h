@@ -5,7 +5,7 @@
 #include <fstream>
 
 void ArgStart(int argc, char* argv[]);
-//прототипы функций для вызова режима программы в файле argStart
+//РїСЂРѕС‚РѕС‚РёРїС‹ С„СѓРЅРєС†РёР№ РґР»СЏ РІС‹Р·РѕРІР° СЂРµР¶РёРјР° РїСЂРѕРіСЂР°РјРјС‹ РІ С„Р°Р№Р»Рµ argStart
 void MyString();
 void Pointer();
 void Friends();

@@ -4,17 +4,17 @@
 #include <list>
 #include <numeric>
 using namespace std;
-//консольная команда: -stla
-//работа с алгоритмами стандартной библиотеки stl
+//РєРѕРЅСЃРѕР»СЊРЅР°СЏ РєРѕРјР°РЅРґР°: -stla
+//СЂР°Р±РѕС‚Р° СЃ Р°Р»РіРѕСЂРёС‚РјР°РјРё СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ Р±РёР±Р»РёРѕС‚РµРєРё stl
 
-//функторы(функциональный объект)
+//С„СѓРЅРєС‚РѕСЂС‹(С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅС‹Р№ РѕР±СЉРµРєС‚)
 class MyFunctor
 {
 public:
-	//перегрузка оператора ()
+	//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° ()
 	int operator () (int a, int b)
 	{
-		cout << "Я функтор " << count << endl;
+		cout << "РЇ С„СѓРЅРєС‚РѕСЂ " << count << endl;
 		count++;
 		return a + b;
 	}
@@ -38,12 +38,12 @@ public:
 
 	void ShowEvenSum()
 	{
-		cout << "Сумма чётных чисел = " << evenSum << endl;
+		cout << "РЎСѓРјРјР° С‡С‘С‚РЅС‹С… С‡РёСЃРµР» = " << evenSum << endl;
 	}
 
 	void ShowEvenCount()
 	{
-		cout << "Количество чётных чисел = " << evenCount << endl;
+		cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ С‡С‘С‚РЅС‹С… С‡РёСЃРµР» = " << evenCount << endl;
 	}
 
 private:
@@ -51,7 +51,7 @@ private:
 	int evenCount = 0;
 };
 
-//предикаты
+//РїСЂРµРґРёРєР°С‚С‹
 bool GreaterThanZero(int a)
 {
 	return a > 0;
@@ -65,7 +65,7 @@ public:
 		this->name = name;
 		this->score = score;
 	}
-	//функтор - предикат
+	//С„СѓРЅРєС‚РѕСЂ - РїСЂРµРґРёРєР°С‚
 	bool operator()(const Person& p)
 	{
 		return p.score > 180;
@@ -86,9 +86,9 @@ public:
 	int x, y;
 };
 
-void StlAlg()//консольная команда: -stla
+void StlAlg()//РєРѕРЅСЃРѕР»СЊРЅР°СЏ РєРѕРјР°РЅРґР°: -stla
 {
-	//пример использования функторов
+	//РїСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ С„СѓРЅРєС‚РѕСЂРѕРІ
 	MyFunctor f;
 	int result = f(5, 2);
 	cout << endl;
@@ -104,48 +104,48 @@ void StlAlg()//консольная команда: -stla
 	cout << endl;
 
 	//=================================
-	//пример использования предикатов
+	//РїСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РїСЂРµРґРёРєР°С‚РѕРІ
 	cout << GreaterThanZero(-10) << endl;
 	cout << endl;
 
 	vector<int> v = { 1,-2,-55,9,-3,8 };
-	//записывает количество элементов удовлетворительно оценённых предикатом
+	//Р·Р°РїРёСЃС‹РІР°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ СѓРґРѕРІР»РµС‚РІРѕСЂРёС‚РµР»СЊРЅРѕ РѕС†РµРЅС‘РЅРЅС‹С… РїСЂРµРґРёРєР°С‚РѕРј
 	auto res = count_if(v.begin(), v.end(), GreaterThanZero);
 	cout << res << endl;
 	cout << endl;
 
 	vector<Person> people
 	{
-		Person("Вася",181),
-		Person("Петя",30),
-		Person("Маша",179),
-		Person("Даша",200),
-		Person("Катя",198),
-		Person("Андрей",181),
-		Person("Сергей",50),
-		Person("Иван",150)
+		Person("Р’Р°СЃСЏ",181),
+		Person("РџРµС‚СЏ",30),
+		Person("РњР°С€Р°",179),
+		Person("Р”Р°С€Р°",200),
+		Person("РљР°С‚СЏ",198),
+		Person("РђРЅРґСЂРµР№",181),
+		Person("РЎРµСЂРіРµР№",50),
+		Person("РРІР°РЅ",150)
 	};
 
-	//сортируем без перегрузки операторов сравнения
+	//СЃРѕСЂС‚РёСЂСѓРµРј Р±РµР· РїРµСЂРµРіСЂСѓР·РєРё РѕРїРµСЂР°С‚РѕСЂРѕРІ СЃСЂР°РІРЅРµРЅРёСЏ
 	sort(people.begin(), people.end(), [](const Person& p1, const Person& p2)
 		{
 			return p1.name < p2.name;
 		});
 
-	//вывод на консоль значений vector people
+	//РІС‹РІРѕРґ РЅР° РєРѕРЅСЃРѕР»СЊ Р·РЅР°С‡РµРЅРёР№ vector people
 	for (auto i : people)
 	{
-		cout << "Имя " << i.name << "\tбаллы " << i.score << endl;
+		cout << "РРјСЏ " << i.name << "\tР±Р°Р»Р»С‹ " << i.score << endl;
 	}
 	cout << endl;
 
-	//запись количества значений vector people на основе проверки его предиката
+	//Р·Р°РїРёСЃСЊ РєРѕР»РёС‡РµСЃС‚РІР° Р·РЅР°С‡РµРЅРёР№ vector people РЅР° РѕСЃРЅРѕРІРµ РїСЂРѕРІРµСЂРєРё РµРіРѕ РїСЂРµРґРёРєР°С‚Р°
 	auto results = count_if(people.begin(), people.end(), people.front());
 	cout << results << endl;
 	cout << endl;
 
 	vector<int> vec = { 9,4,94,6,9,3,7 };
-	//использование лямбда-предиката предикатом для сортировки от большего к меньшему
+	//РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ Р»СЏРјР±РґР°-РїСЂРµРґРёРєР°С‚Р° РїСЂРµРґРёРєР°С‚РѕРј РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РѕС‚ Р±РѕР»СЊС€РµРіРѕ Рє РјРµРЅСЊС€РµРјСѓ
 	sort(vec.begin(), vec.end(), [](int a, int b) { return a > b; });
 	for (auto i : vec)
 	{
@@ -155,15 +155,15 @@ void StlAlg()//консольная команда: -stla
 	cout << endl;
 
 	//============================================
-	//find find_if find_if_not - поиск первого совпадения
-	//поиск значения(необходима перегрузка операторов сравнения)
+	//find find_if find_if_not - РїРѕРёСЃРє РїРµСЂРІРѕРіРѕ СЃРѕРІРїР°РґРµРЅРёСЏ
+	//РїРѕРёСЃРє Р·РЅР°С‡РµРЅРёСЏ(РЅРµРѕР±С…РѕРґРёРјР° РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂРѕРІ СЃСЂР°РІРЅРµРЅРёСЏ)
 	auto fRes = find(vec.begin(), vec.end(), 94);
 	if (fRes != vec.end())
 	{
 		cout << "+" << endl;
 	}
 
-	//поиск чётного числа
+	//РїРѕРёСЃРє С‡С‘С‚РЅРѕРіРѕ С‡РёСЃР»Р°
 	auto fifRes = find_if(vec.begin(), vec.end(), [](int a)
 		{
 			return a % 2 == 0;
@@ -175,10 +175,10 @@ void StlAlg()//консольная команда: -stla
 	}
 	cout << endl;
 
-	//поиск имени в people
+	//РїРѕРёСЃРє РёРјРµРЅРё РІ people
 	auto fifResPeople = find_if(people.begin(), people.end(), [](const Person& person)
 		{
-			return person.name == "Маша" && person.score == 120;
+			return person.name == "РњР°С€Р°" && person.score == 120;
 		});
 
 	if (fifResPeople != people.end())
@@ -191,7 +191,7 @@ void StlAlg()//консольная команда: -stla
 	}
 	cout << endl;
 
-	//инвертированный вывод команды
+	//РёРЅРІРµСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РІС‹РІРѕРґ РєРѕРјР°РЅРґС‹
 	auto fifnRes = find_if_not(vec.begin(), vec.end(), [](int a)
 		{
 			return a % 2 == 0;
@@ -199,7 +199,7 @@ void StlAlg()//консольная команда: -stla
 	cout << endl;
 
 	//====================================
-	//работа лямбда предиката с массивом
+	//СЂР°Р±РѕС‚Р° Р»СЏРјР±РґР° РїСЂРµРґРёРєР°С‚Р° СЃ РјР°СЃСЃРёРІРѕРј
 	const int SIZE = 7;
 	int array[SIZE] = { 9,4,94,6,9,3,7 };
 	sort(array, array + SIZE, [](int a, int b) { return a > b; });
@@ -212,38 +212,38 @@ void StlAlg()//консольная команда: -stla
 	//==========================================
 	//copy copy_if
 	vector<Person> resultPerson;
-	//копируем всю коллекцию коллекцию
+	//РєРѕРїРёСЂСѓРµРј РІСЃСЋ РєРѕР»Р»РµРєС†РёСЋ РєРѕР»Р»РµРєС†РёСЋ
 	copy(people.begin(), people.end(), back_inserter(resultPerson));
 
 	vector<Person> resPerson;
-	//копируем только то что подходит в предикат
+	//РєРѕРїРёСЂСѓРµРј С‚РѕР»СЊРєРѕ С‚Рѕ С‡С‚Рѕ РїРѕРґС…РѕРґРёС‚ РІ РїСЂРµРґРёРєР°С‚
 	copy_if(people.begin(), people.end(), back_inserter(resPerson), [](const Person& person)
 		{
-			return person.name == "Маша";
+			return person.name == "РњР°С€Р°";
 		});
 
 	//===========================================
 	//remove remove_if
-	//скидывает не нужные элементы в конец и возвращает итератор на первый ненужный элемент
+	//СЃРєРёРґС‹РІР°РµС‚ РЅРµ РЅСѓР¶РЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ РІ РєРѕРЅРµС† Рё РІРѕР·РІСЂР°С‰Р°РµС‚ РёС‚РµСЂР°С‚РѕСЂ РЅР° РїРµСЂРІС‹Р№ РЅРµРЅСѓР¶РЅС‹Р№ СЌР»РµРјРµРЅС‚
 	auto remRes = remove(vec.begin(), vec.end(), 9);
-	//удаление не нужных элементов
+	//СѓРґР°Р»РµРЅРёРµ РЅРµ РЅСѓР¶РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ
 	vec.erase(remRes, vec.end());
 
-	//можно не использовать переменную
+	//РјРѕР¶РЅРѕ РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ
 	resultPerson.erase(remove_if(resultPerson.begin(), resultPerson.end(), [](const Person& person)
 		{
-			return person.name == "Маша";
+			return person.name == "РњР°С€Р°";
 		}));
 
-	//пример со строкой
-	string str = "Текст с несколькими   пробелами";
+	//РїСЂРёРјРµСЂ СЃРѕ СЃС‚СЂРѕРєРѕР№
+	string str = "РўРµРєСЃС‚ СЃ РЅРµСЃРєРѕР»СЊРєРёРјРё   РїСЂРѕР±РµР»Р°РјРё";
 	cout << str << endl;
 	str.erase(remove(str.begin(), str.end(), ' '), str.end());
 	cout << str << endl;
 	cout << endl;
 
 	//=============================================
-	//поиск максимального элемента
+	//РїРѕРёСЃРє РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 	list<int> lst = { 4,7,77,-3,44,74 };
 
 	auto itxv = max_element(vec.begin(), vec.end());
@@ -257,35 +257,35 @@ void StlAlg()//консольная команда: -stla
 	cout << endl;
 
 	//=============================================
-	//поиск минимального элемента
+	//РїРѕРёСЃРє РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 	auto itmv = min_element(vec.begin(), vec.end());
 	cout << *itmv << endl;
 	cout << endl;
 
 	//=============================================
-	//поиск минимального и максимального элемента
+	//РїРѕРёСЃРє РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Рё РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 	auto itmxv = minmax_element(vec.begin(), vec.end());
 	cout << *itmxv.first << " " << *itmxv.second << endl;
 	cout << endl;
 
 	//=============================================
-	//нахождение суммы элементов коллекции
+	//РЅР°С…РѕР¶РґРµРЅРёРµ СЃСѓРјРјС‹ СЌР»РµРјРµРЅС‚РѕРІ РєРѕР»Р»РµРєС†РёРё
 	auto resAc = accumulate(begin(vec), end(vec), 0);
 	cout << resAc << endl;
-	//вариант передачи итератора
+	//РІР°СЂРёР°РЅС‚ РїРµСЂРµРґР°С‡Рё РёС‚РµСЂР°С‚РѕСЂР°
 	auto resAcAr = accumulate(begin(array), end(array), 0);
 	cout << resAcAr << endl;
 	cout << endl;
 
-	//произведение
+	//РїСЂРѕРёР·РІРµРґРµРЅРёРµ
 	auto resAcCom = accumulate(begin(vec), end(vec), 1, [](int a, int b)
 		{
-			return a * b;//определение функции вручную
+			return a * b;//РѕРїСЂРµРґРµР»РµРЅРёРµ С„СѓРЅРєС†РёРё РІСЂСѓС‡РЅСѓСЋ
 		});
 	cout << resAcCom << endl;
 	cout << endl;
 
-	//сумма четных элементов
+	//СЃСѓРјРјР° С‡РµС‚РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ
 	auto rAcVec = accumulate(begin(vec), end(vec), 0, [](int a, int b)
 		{
 			if (b % 2 == 0)
@@ -300,7 +300,7 @@ void StlAlg()//консольная команда: -stla
 	cout << rAcVec << endl;
 	cout << endl;
 
-	//конвертация массива в строку
+	//РєРѕРЅРІРµСЂС‚Р°С†РёСЏ РјР°СЃСЃРёРІР° РІ СЃС‚СЂРѕРєСѓ
 	auto strRes = accumulate(next(begin(array)), end(array), to_string(v[0]), [](string a, int b)
 		{
 			return a + "-" + to_string(b);
@@ -309,10 +309,10 @@ void StlAlg()//консольная команда: -stla
 	cout << endl;
 
 	//=================================
-	//сравнить две последовательности
+	//СЃСЂР°РІРЅРёС‚СЊ РґРІРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё
 	int newArr[] = { 10,3,4,5,7,11 };
 	int newArr2[] = { 11,7,5,4,3,10 };
-	//mismatch - возвращает первую пару не совпавших элементов
+	//mismatch - РІРѕР·РІСЂР°С‰Р°РµС‚ РїРµСЂРІСѓСЋ РїР°СЂСѓ РЅРµ СЃРѕРІРїР°РІС€РёС… СЌР»РµРјРµРЅС‚РѕРІ
 	auto resMis = mismatch(begin(newArr), end(newArr), begin(newArr2), end(newArr2));
 	if (resMis.first == end(newArr) && resMis.second == end(newArr2))
 	{
@@ -323,16 +323,16 @@ void StlAlg()//консольная команда: -stla
 		cout << "-" << endl;
 	}
 
-	//equal - возвращает булевое значение
-	//без сортировки последовательности различны и у equal и mismatch
+	//equal - РІРѕР·РІСЂР°С‰Р°РµС‚ Р±СѓР»РµРІРѕРµ Р·РЅР°С‡РµРЅРёРµ
+	//Р±РµР· СЃРѕСЂС‚РёСЂРѕРІРєРё РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё СЂР°Р·Р»РёС‡РЅС‹ Рё Сѓ equal Рё mismatch
 	sort(begin(newArr), end(newArr));
 	sort(begin(newArr2), end(newArr2));
-	//можно сравнивать разные коллекции одного типа
+	//РјРѕР¶РЅРѕ СЃСЂР°РІРЅРёРІР°С‚СЊ СЂР°Р·РЅС‹Рµ РєРѕР»Р»РµРєС†РёРё РѕРґРЅРѕРіРѕ С‚РёРїР°
 	bool resArr = equal(begin(newArr), end(newArr), begin(vec), end(vec));
 	cout << resArr << endl;
 	cout << endl;
 
-	//equal с предикатом
+	//equal СЃ РїСЂРµРґРёРєР°С‚РѕРј
 	vector<Points> arrP
 	{
 		Points(1,3),
@@ -353,7 +353,7 @@ void StlAlg()//консольная команда: -stla
 	cout << endl;
 
 	//===============================
-	//for_each - перебор коллекции по предикату(либо функции)
+	//for_each - РїРµСЂРµР±РѕСЂ РєРѕР»Р»РµРєС†РёРё РїРѕ РїСЂРµРґРёРєР°С‚Сѓ(Р»РёР±Рѕ С„СѓРЅРєС†РёРё)
 	for_each(begin(array), end(array), [](int a)
 		{
 			cout << a << " ";
@@ -363,9 +363,9 @@ void StlAlg()//консольная команда: -stla
 	//===============================
 	//unique
 	int arrD[] = { 1,2,2,2,5,4,4 };
-	//в конец скидывает повторающиеся элементы
+	//РІ РєРѕРЅРµС† СЃРєРёРґС‹РІР°РµС‚ РїРѕРІС‚РѕСЂР°СЋС‰РёРµСЃСЏ СЌР»РµРјРµРЅС‚С‹
 	auto resArrD = unique(begin(arrD), end(arrD));
-	//выведем только оригинальные элементы
+	//РІС‹РІРµРґРµРј С‚РѕР»СЊРєРѕ РѕСЂРёРіРёРЅР°Р»СЊРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹
 	for_each(begin(arrD), resArrD, [](int a)
 		{
 			cout << a << " ";
@@ -383,7 +383,7 @@ void StlAlg()//консольная команда: -stla
 	cout << endl;
 
 	//=================================
-	//random_shuffle - рандомизирует коллекцию требует srand
+	//random_shuffle - СЂР°РЅРґРѕРјРёР·РёСЂСѓРµС‚ РєРѕР»Р»РµРєС†РёСЋ С‚СЂРµР±СѓРµС‚ srand
 	int arrRS[] = { 1,2,3,4,5 };
 	random_shuffle(begin(arrRS), end(arrRS));
 	for (auto& i : arrRS)
@@ -393,7 +393,7 @@ void StlAlg()//консольная команда: -stla
 	cout << endl;
 	cout << endl;
 
-	//создал тут чтобы не бегать по коду
+	//СЃРѕР·РґР°Р» С‚СѓС‚ С‡С‚РѕР±С‹ РЅРµ Р±РµРіР°С‚СЊ РїРѕ РєРѕРґСѓ
 	class IAction
 	{
 	public:
@@ -403,28 +403,28 @@ void StlAlg()//консольная команда: -stla
 	{
 		virtual void Action() override
 		{
-			cout << "Гладим кота" << endl;
+			cout << "Р“Р»Р°РґРёРј РєРѕС‚Р°" << endl;
 		}
 	};
 	class TeaAction : public IAction
 	{
 		virtual void Action() override
 		{
-			cout << "Пьём чай" << endl;
+			cout << "РџСЊС‘Рј С‡Р°Р№" << endl;
 		}
 	};
 	class DogAction : public IAction
 	{
 		virtual void Action() override
 		{
-			cout << "Гладим собаку" << endl;
+			cout << "Р“Р»Р°РґРёРј СЃРѕР±Р°РєСѓ" << endl;
 		}
 	};
 	class SleepAction : public IAction
 	{
 		virtual void Action() override
 		{
-			cout << "Спим" << endl;
+			cout << "РЎРїРёРј" << endl;
 		}
 	};
 

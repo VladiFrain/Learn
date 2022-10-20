@@ -1,27 +1,27 @@
 #include "header.h"
 using namespace std;
 
-//управление через параметры консоли
+//СѓРїСЂР°РІР»РµРЅРёРµ С‡РµСЂРµР· РїР°СЂР°РјРµС‚СЂС‹ РєРѕРЅСЃРѕР»Рё
 void ArgStart(int argc, char* argv[])
 {
 	for (int i = 0; i < argc; i++)
 	{
-		if (argc < 2)//если при запуске приложения не были заданы параметры консоли
+		if (argc < 2)//РµСЃР»С„Рё РїСЂРё Р·Р°РїСѓСЃРєРµ РїСЂРёР»РѕР¶РµРЅРёСЏ РЅРµ Р±С‹Р»Рё Р·Р°РґР°РЅС‹ РїР°СЂР°РјРµС‚СЂС‹ РєРѕРЅСЃРѕР»Рё
 		{
-			cout << "Не выбран режим работы используйте -h" << endl;
+			cout << "РќРµ РІС‹Р±СЂР°РЅ СЂРµР¶РёРј СЂР°Р±РѕС‚С‹ РёСЃРїРѕР»СЊР·СѓР№С‚Рµ -h" << endl;
 		}
 
-		if (!strcmp(argv[i], "-h"))//справка по параметрам консоли
+		if (!strcmp(argv[i], "-h"))//СЃРїСЂР°РІРєР° РїРѕ РїР°СЂР°РјРµС‚СЂР°Рј РєРѕРЅСЃРѕР»Рё
 		{
-			cout << "Доступные режимы: -ms, -c(сразу после него через пробел необходим a, b, c, i, p, m, v, f, t, in, im), -f, -e, -en, -d, -a, -p, -s" << endl;
+			cout << "Р”РѕСЃС‚СѓРїРЅС‹Рµ СЂРµР¶РёРјС‹: -ms, -c(СЃСЂР°Р·Сѓ РїРѕСЃР»Рµ РЅРµРіРѕ С‡РµСЂРµР· РїСЂРѕР±РµР» РЅРµРѕР±С…РѕРґРёРј a, b, c, i, p, m, v, f, t, in, im), -f, -e, -en, -d, -a, -p, -s" << endl;
 		}
 
-		if (!strcmp(argv[i], "-ms"))//собственный класс string
+		if (!strcmp(argv[i], "-ms"))//СЃРѕР±СЃС‚РІРµРЅРЅС‹Р№ РєР»Р°СЃСЃ string
 		{
 			MyString();
 		}
 
-		if (!strcmp(argv[i], "-c"))//блок работ с классами
+		if (!strcmp(argv[i], "-c"))//Р±Р»РѕРє СЂР°Р±РѕС‚ СЃ РєР»Р°СЃСЃР°РјРё
 		{
 			if (!strcmp(argv[i + 1], "a"))
 			{
@@ -69,87 +69,87 @@ void ArgStart(int argc, char* argv[])
 			}
 		}
 
-		if (!strcmp(argv[i], "-f"))//работа с файлами
+		if (!strcmp(argv[i], "-f"))//СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»Р°РјРё
 		{
 			FilesWR();
 		}
 
-		if (!strcmp(argv[i], "-e"))//работы с исключениями
+		if (!strcmp(argv[i], "-e"))//СЂР°Р±РѕС‚С‹ СЃ РёСЃРєР»СЋС‡РµРЅРёСЏРјРё
 		{
 			Exceptions();
 		}
 
-		if (!strcmp(argv[i], "-en"))//работа с ENUM
+		if (!strcmp(argv[i], "-en"))//СЂР°Р±РѕС‚Р° СЃ ENUM
 		{
 			Enum();
 		}
 
-		if (!strcmp(argv[i], "-d"))//работа с #DEFINE
+		if (!strcmp(argv[i], "-d"))//СЂР°Р±РѕС‚Р° СЃ #DEFINE
 		{
 			IfDef();
 		}
 
-		if (!strcmp(argv[i], "-a"))//работа с массивами
+		if (!strcmp(argv[i], "-a"))//СЂР°Р±РѕС‚Р° СЃ РјР°СЃСЃРёРІР°РјРё
 		{
 			Array();
 		}
 
-		if (!strcmp(argv[i], "-p"))//функции
+		if (!strcmp(argv[i], "-p"))//С„СѓРЅРєС†РёРё
 		{
 			Source();
 		}
 
-		if (!strcmp(argv[i], "-s"))//умные указатели
+		if (!strcmp(argv[i], "-s"))//СѓРјРЅС‹Рµ СѓРєР°Р·Р°С‚РµР»Рё
 		{
 			SmartPointers();
 		}
 
-		if (!strcmp(argv[i], "-sl"))//умные указатели
+		if (!strcmp(argv[i], "-sl"))//СѓРјРЅС‹Рµ СѓРєР°Р·Р°С‚РµР»Рё
 		{
 			SinglyLinkedList();
 		}
 
-		if (!strcmp(argv[i], "-stl"))//библиотека stl
+		if (!strcmp(argv[i], "-stl"))//Р±РёР±Р»РёРѕС‚РµРєР° stl
 		{
 			Stl();
 		}
 
-		if (!strcmp(argv[i], "-stll"))//библиотека stl 2
+		if (!strcmp(argv[i], "-stll"))//Р±РёР±Р»РёРѕС‚РµРєР° stl 2
 		{
 			StlList();
 		}
 
-		if (!strcmp(argv[i], "-stls"))//библиотека stl 3
+		if (!strcmp(argv[i], "-stls"))//Р±РёР±Р»РёРѕС‚РµРєР° stl 3
 		{
 			StlStack();
 		}
 
-		if (!strcmp(argv[i], "-stla"))//библиотека stl 4
+		if (!strcmp(argv[i], "-stla"))//Р±РёР±Р»РёРѕС‚РµРєР° stl 4
 		{
 			StlAlg();
 		}
 
-		if (!strcmp(argv[i], "-t"))//работа с потоками
+		if (!strcmp(argv[i], "-t"))//СЂР°Р±РѕС‚Р° СЃ РїРѕС‚РѕРєР°РјРё
 		{
 			Thread();
 		}
 
-		if (!strcmp(argv[i], "-mu"))//работа с потоками
+		if (!strcmp(argv[i], "-mu"))//СЂР°Р±РѕС‚Р° СЃ РїРѕС‚РѕРєР°РјРё
 		{
 			Mutex();
 		}
 
-		if (!strcmp(argv[i], "-u"))//работа с union
+		if (!strcmp(argv[i], "-u"))//СЂР°Р±РѕС‚Р° СЃ union
 		{
 			Union();
 		}
 
-		if (!strcmp(argv[i], "-fu"))//работа с std::function
+		if (!strcmp(argv[i], "-fu"))//СЂР°Р±РѕС‚Р° СЃ std::function
 		{
 			Function();
 		}
 
-		if (!strcmp(argv[i], "-ti"))//время выполнения участка кода
+		if (!strcmp(argv[i], "-ti"))//РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СѓС‡Р°СЃС‚РєР° РєРѕРґР°
 		{
 			Times();
 		}

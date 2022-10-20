@@ -3,13 +3,13 @@
 
 #define DEBUG
 #define FOO(x,y) ((x)*(y))
-//объявление псевдонима
+//РѕР±СЉСЏРІР»РµРЅРёРµ РїСЃРµРІРґРѕРЅРёРјР°
 typedef std::vector<int> int_vector;
 
 
-//пример работы define
+//РїСЂРёРјРµСЂ СЂР°Р±РѕС‚С‹ define
 
-void IfDef()//консольная команда: -d
+void IfDef()//РєРѕРЅСЃРѕР»СЊРЅР°СЏ РєРѕРјР°РЅРґР°: -d
 {
 #ifdef DEBUG
 	std::cout << "debug on" << std::endl;
@@ -20,6 +20,6 @@ void IfDef()//консольная команда: -d
 	std::cout << FOO(5, 6) << std::endl;
 
 	std::vector<int> myVector;
-	//можно создавать через псевдоним
+	//РјРѕР¶РЅРѕ СЃРѕР·РґР°РІР°С‚СЊ С‡РµСЂРµР· РїСЃРµРІРґРѕРЅРёРј
 	int_vector myVector2;
 }

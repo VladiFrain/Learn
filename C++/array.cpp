@@ -2,32 +2,32 @@
 
 using namespace std;
 
-//заполнение массива
+//Р·Р°РїРѕР»РЅРµРЅРёРµ РјР°СЃСЃРёРІР°
 void FillArray(int* const arr, const int size) {
 	for (int i = 0; i < size; i++)
 	{
 		arr[i] = rand() % 10;
 	}
 }
-//показ массива
+//РїРѕРєР°Р· РјР°СЃСЃРёРІР°
 void ShowArray(const int* const arr, const int size) {
 	for (int i = 0; i < size; i++)
 	{
 		cout << arr[i] << "\t";
 	}
 }
-//добавление значения в конец массива
+//РґРѕР±Р°РІР»РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ РІ РєРѕРЅРµС† РјР°СЃСЃРёРІР°
 void PushArrayBack(int*& arr, int& size, const int value) {
 	int* newArray = new int[size + 1];
 	for (int i = 0; i < size; i++)
 	{
 		newArray[i] = arr[i];
 	}
-	newArray[size++] = value; //вначале добавиться элемент под номером size, а уже после: значение size увеличиться на единицу
+	newArray[size++] = value; //РІРЅР°С‡Р°Р»Рµ РґРѕР±Р°РІРёС‚СЊСЃСЏ СЌР»РµРјРµРЅС‚ РїРѕРґ РЅРѕРјРµСЂРѕРј size, Р° СѓР¶Рµ РїРѕСЃР»Рµ: Р·РЅР°С‡РµРЅРёРµ size СѓРІРµР»РёС‡РёС‚СЊСЃСЏ РЅР° РµРґРёРЅРёС†Сѓ
 	delete[] arr;
 	arr = newArray;
 }
-//добавление значение в начало массива
+//РґРѕР±Р°РІР»РµРЅРёРµ Р·РЅР°С‡РµРЅРёРµ РІ РЅР°С‡Р°Р»Рѕ РјР°СЃСЃРёРІР°
 void PushArrayFirst(int*& arr, int& size, const int value) {
 	int* newArray = new int[size + 1];
 	for (int i = 0; i < size; i++)
@@ -39,7 +39,7 @@ void PushArrayFirst(int*& arr, int& size, const int value) {
 	delete[] arr;
 	arr = newArray;
 }
-//удаление первого элемента массива
+//СѓРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°
 void PopArrayFirst(int*& arr, int& size) {
 	size--;
 	int* newArray = new int[size];
@@ -50,7 +50,7 @@ void PopArrayFirst(int*& arr, int& size) {
 	delete[] arr;
 	arr = newArray;
 }
-//удаление последнего элемента массива
+//СѓРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°
 void PopArrayBack(int*& arr, int& size) {
 	size--;
 	int* newArray = new int[size];
@@ -62,9 +62,9 @@ void PopArrayBack(int*& arr, int& size) {
 	arr = newArray;
 }
 
-void Array()//консольная команда: -a
+void Array()//РєРѕРЅСЃРѕР»СЊРЅР°СЏ РєРѕРјР°РЅРґР°: -a
 {
-	cout << "Работа с array" << endl;
+	cout << "Р Р°Р±РѕС‚Р° СЃ array" << endl;
 	int size = 5;
 	int* firstArray = new int[size];
 	int* secondArray = new int[size];

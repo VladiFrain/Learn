@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//длина строки
+//РґР»РёРЅР° СЃС‚СЂРѕРєРё
 int strLength(const char* str) {
 	int counter = 0;
 	while (str[counter] != '\0')
@@ -15,13 +15,13 @@ int strLength(const char* str) {
 class MyStr
 {
 public:
-	//конструктор без параметров
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 	MyStr()
 	{
 		str = nullptr;
 		length = 0;
 	}
-	//конструктор для записи переданой строки
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ Р·Р°РїРёСЃРё РїРµСЂРµРґР°РЅРѕР№ СЃС‚СЂРѕРєРё
 	MyStr(const char *str)
 	{
 		length = strLength(str);
@@ -34,12 +34,12 @@ public:
 
 		this->str[length] = '\0';
 	}
-	//деструктор
+	//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 	~MyStr()
 	{
 		delete[] this->str;
 	}
-	//конструктор копирования
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	MyStr(const MyStr &other)
 	{
 		length = strLength(other.str);
@@ -52,14 +52,14 @@ public:
 
 		this->str[length] = '\0';
 	}
-	//конструктор переноса
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРЅРѕСЃР°
 	MyStr(MyStr &&other)
 	{
 		this->length = other.length;
 		this->str = other.str;
 		other.str = nullptr;
 	}
-	//перегруженный оператор присваивания
+	//РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	MyStr &operator = (const MyStr &other)
 	{
 		if (this->str != nullptr)
@@ -79,7 +79,7 @@ public:
 
 		return *this;
 	}
-	//перегруженный оператор сложения
+	//РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ СЃР»РѕР¶РµРЅРёСЏ
 	MyStr operator + (const MyStr &other)
 	{
 		MyStr newStr;
@@ -101,24 +101,24 @@ public:
 
 		return newStr;
 	}
-	//вывод строки на консоль
+	//РІС‹РІРѕРґ СЃС‚СЂРѕРєРё РЅР° РєРѕРЅСЃРѕР»СЊ
 	void Print()
 	{
 		cout << str << endl;
 	}
-	//длина строки
+	//РґР»РёРЅР° СЃС‚СЂРѕРєРё
 	int Length()
 	{
 		return length;
 	}
-	//перегрузка оператора равенства
+	//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СЂР°РІРµРЅСЃС‚РІР°
 	bool operator ==(const MyStr &other)
 	{
 		if (this->length != other.length)
 		{
 			return false;
 		}
-		for (int i = 0; i < length; i++)//без разницы какой length использовать(мы находимся в классе)
+		for (int i = 0; i < length; i++)//Р±РµР· СЂР°Р·РЅРёС†С‹ РєР°РєРѕР№ length РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ(РјС‹ РЅР°С…РѕРґРёРјСЃСЏ РІ РєР»Р°СЃСЃРµ)
 		{
 			if (this->str[i] != other.str[i])
 			{
@@ -127,27 +127,27 @@ public:
 		}
 		return true;
 	}
-	//перегрузка оператора неравенства
+	//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РЅРµСЂР°РІРµРЅСЃС‚РІР°
 	bool operator !=(const MyStr &other)
 	{
 		return !(this->operator==(other));
 	}
-	//перегрузка оператора[]
+	//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР°[]
 	char &operator [](int index)
 	{
 		return this->str[index];
 	}
 
 private:
-	//указатель на масив char, хранит символы которые мы передали в наш объект
+	//СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РјР°СЃРёРІ char, С…СЂР°РЅРёС‚ СЃРёРјРІРѕР»С‹ РєРѕС‚РѕСЂС‹Рµ РјС‹ РїРµСЂРµРґР°Р»Рё РІ РЅР°С€ РѕР±СЉРµРєС‚
 	char *str;
-	//длинна строки
+	//РґР»РёРЅРЅР° СЃС‚СЂРѕРєРё
 	int length;
 };
-//для передачи в метод main через argStart
-void MyString() //команда консоли: -ms
+//РґР»СЏ РїРµСЂРµРґР°С‡Рё РІ РјРµС‚РѕРґ main С‡РµСЂРµР· argStart
+void MyString() //РєРѕРјР°РЅРґР° РєРѕРЅСЃРѕР»Рё: -ms
 {
-	cout << "Проверка самодельного String" << endl;
+	cout << "РџСЂРѕРІРµСЂРєР° СЃР°РјРѕРґРµР»СЊРЅРѕРіРѕ String" << endl;
 	MyStr str;
 	str = "Hello";
 

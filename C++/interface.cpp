@@ -1,6 +1,6 @@
 #include "header.h"
 using namespace std;
-//интерфейс - абстрактный класс у которого все методы чисто виртуальные
+//РёРЅС‚РµСЂС„РµР№СЃ - Р°Р±СЃС‚СЂР°РєС‚РЅС‹Р№ РєР»Р°СЃСЃ Сѓ РєРѕС‚РѕСЂРѕРіРѕ РІСЃРµ РјРµС‚РѕРґС‹ С‡РёСЃС‚Рѕ РІРёСЂС‚СѓР°Р»СЊРЅС‹Рµ
 
 class IBicycle
 {
@@ -14,23 +14,23 @@ class Rider
 public:
 	void RideOn(IBicycle &bicycle)
 	{
-		cout << "Крутим руль" << endl;
+		cout << "РљСЂСѓС‚РёРј СЂСѓР»СЊ" << endl;
 		bicycle.TwistTheWheel();
-		cout << "Поехали" << endl;
+		cout << "РџРѕРµС…Р°Р»Рё" << endl;
 		bicycle.Ride();
 	}
 };
 
-class SimpleBicycle : public IBicycle //реализуем интерфейс
+class SimpleBicycle : public IBicycle //СЂРµР°Р»РёР·СѓРµРј РёРЅС‚РµСЂС„РµР№СЃ
 {
 	void TwistTheWheel() override
 	{
-		cout << "Метод TwistTheWheel у SimpleBicycle" << endl;
+		cout << "РњРµС‚РѕРґ TwistTheWheel Сѓ SimpleBicycle" << endl;
 	}
 
 	void Ride() override
 	{
-		cout << "Метод Ride у SimpleBicycle" << endl;
+		cout << "РњРµС‚РѕРґ Ride Сѓ SimpleBicycle" << endl;
 	}
 
 };
@@ -39,16 +39,16 @@ class SportBicycle : public IBicycle
 {
 	void TwistTheWheel() override
 	{
-		cout << "Метод TwistTheWheel у SportBicycle" << endl;
+		cout << "РњРµС‚РѕРґ TwistTheWheel Сѓ SportBicycle" << endl;
 	}
 
 	void Ride() override
 	{
-		cout << "Метод Ride у SportBicycle" << endl;
+		cout << "РњРµС‚РѕРґ Ride Сѓ SportBicycle" << endl;
 	}
 };
 
-void Interface()//консольная команда: -c in
+void Interface()//РєРѕРЅСЃРѕР»СЊРЅР°СЏ РєРѕРјР°РЅРґР°: -c in
 {
 	Rider rider;
 	SimpleBicycle simpleBicycle;

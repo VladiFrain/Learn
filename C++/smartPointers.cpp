@@ -1,7 +1,7 @@
 #include "header.h"
 using namespace std;
-//умные указатели
-//пример smart pointer
+//СѓРјРЅС‹Рµ СѓРєР°Р·Р°С‚РµР»Рё
+//РїСЂРёРјРµСЂ smart pointer
 template<typename T>
 class SmartPointer
 {
@@ -9,15 +9,15 @@ public:
 	SmartPointer(T *ptr)
 	{
 		this->ptr = ptr;
-		//cout << "Constructor" << endl;//для отслеживания работы
+		//cout << "Constructor" << endl;//РґР»СЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ СЂР°Р±РѕС‚С‹
 	}
 
 	~SmartPointer()
 	{
 		delete ptr;
-		//cout << "Destructor" << endl;//для отслеживания работы
+		//cout << "Destructor" << endl;//РґР»СЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ СЂР°Р±РѕС‚С‹
 	}
-	//перегрузка оператора *
+	//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° *
 	T &operator * ()
 	{
 		return *ptr;
@@ -29,60 +29,60 @@ private:
 	T *ptr;
 };
 
-void SmartPointers()//команда консоли: -s
+void SmartPointers()//РєРѕРјР°РЅРґР° РєРѕРЅСЃРѕР»Рё: -s
 {
-	//обычный указатель создаёт место в куче
+	//РѕР±С‹С‡РЅС‹Р№ СѓРєР°Р·Р°С‚РµР»СЊ СЃРѕР·РґР°С‘С‚ РјРµСЃС‚Рѕ РІ РєСѓС‡Рµ
 	int *ptr1 = new int(5);
 	int *ptr2 = new int(15);
 	cout << *ptr1 << endl;
-	//необходимо освобождать память
+	//РЅРµРѕР±С…РѕРґРёРјРѕ РѕСЃРІРѕР±РѕР¶РґР°С‚СЊ РїР°РјСЏС‚СЊ
 	delete ptr1;
 	delete ptr2;
 	cout << endl;
 	//======================================
 	
-	//умный указатель - нет необходимости освобождать память
+	//СѓРјРЅС‹Р№ СѓРєР°Р·Р°С‚РµР»СЊ - РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РѕСЃРІРѕР±РѕР¶РґР°С‚СЊ РїР°РјСЏС‚СЊ
 	SmartPointer<int> spointer = new int(5);
 	*spointer = 12356;
 	cout << *spointer << endl;
 	cout << endl;
-	//SmartPointer<int> sp = spointer; - будет exception
+	//SmartPointer<int> sp = spointer; - Р±СѓРґРµС‚ exception
 
-	//auto pointer - может владеть только один объект данными
+	//auto pointer - РјРѕР¶РµС‚ РІР»Р°РґРµС‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ РѕР±СЉРµРєС‚ РґР°РЅРЅС‹РјРё
 	auto_ptr<int> ap1(new int(105));
-	auto_ptr<int> ap2(ap1);//ap1 - потеряет данные
+	auto_ptr<int> ap2(ap1);//ap1 - РїРѕС‚РµСЂСЏРµС‚ РґР°РЅРЅС‹Рµ
 	//cout << *ap1 << endl; - exception
 	cout << *ap2 << endl;
 	cout << endl;
 
-	//unique_ptr - может владеть только один объект данными
+	//unique_ptr - РјРѕР¶РµС‚ РІР»Р°РґРµС‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ РѕР±СЉРµРєС‚ РґР°РЅРЅС‹РјРё
 	unique_ptr<int> up1(new int(305));
-	//unique_ptr<int> up2(up1); - нельзя передавать один ptr другому
-	unique_ptr<int> up2 = move(up1);//up1 - потеряет данные
+	//unique_ptr<int> up2(up1); - РЅРµР»СЊР·СЏ РїРµСЂРµРґР°РІР°С‚СЊ РѕРґРёРЅ ptr РґСЂСѓРіРѕРјСѓ
+	unique_ptr<int> up2 = move(up1);//up1 - РїРѕС‚РµСЂСЏРµС‚ РґР°РЅРЅС‹Рµ
 	//cout << *up1 << endl; - exception
 	cout << *up2 << endl;
-	up1.swap(up2);//up2 - потеряет данные
+	up1.swap(up2);//up2 - РїРѕС‚РµСЂСЏРµС‚ РґР°РЅРЅС‹Рµ
 	cout << *up1 << endl;
-	int *temp = up1.get();//получим указатель
+	int *temp = up1.get();//РїРѕР»СѓС‡РёРј СѓРєР°Р·Р°С‚РµР»СЊ
 	cout << *temp << endl;
 	//unique_ptr<int> up3(ptr1); - exception
-	//up3.reset();//затирает данные в ptr
+	//up3.reset();//Р·Р°С‚РёСЂР°РµС‚ РґР°РЅРЅС‹Рµ РІ ptr
 	//unique_ptr<int> up4(ptr2); - exception
-	//up4.release();//забывает указатель на данные
+	//up4.release();//Р·Р°Р±С‹РІР°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РґР°РЅРЅС‹Рµ
 	cout << endl;
 
-	//shared_ptr - могут между собой владеть одними и теми же данными
+	//shared_ptr - РјРѕРіСѓС‚ РјРµР¶РґСѓ СЃРѕР±РѕР№ РІР»Р°РґРµС‚СЊ РѕРґРЅРёРјРё Рё С‚РµРјРё Р¶Рµ РґР°РЅРЅС‹РјРё
 	shared_ptr<int> sp1(new int(3));
 	shared_ptr<int> sp2(sp1);
 	cout << sp1 << " " << sp2 << endl;
 	cout << *sp1 << " " << *sp2 << endl;
 	cout << endl;
 
-	//работа умных указателей с динамическим массивом
+	//СЂР°Р±РѕС‚Р° СѓРјРЅС‹С… СѓРєР°Р·Р°С‚РµР»РµР№ СЃ РґРёРЅР°РјРёС‡РµСЃРєРёРј РјР°СЃСЃРёРІРѕРј
 	int size;
-	cout << "Укажите сколько будет элементов в массиве: ";
+	cout << "РЈРєР°Р¶РёС‚Рµ СЃРєРѕР»СЊРєРѕ Р±СѓРґРµС‚ СЌР»РµРјРµРЅС‚РѕРІ РІ РјР°СЃСЃРёРІРµ: ";
 	cin >> size;
-	shared_ptr<int[]> ptr(new int[size]);//автоматически будет освобождена память
+	shared_ptr<int[]> ptr(new int[size]);//Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё Р±СѓРґРµС‚ РѕСЃРІРѕР±РѕР¶РґРµРЅР° РїР°РјСЏС‚СЊ
 	for (int i = 0; i < size; i++)
 	{
 		ptr[i] = rand() % 100;

@@ -1,6 +1,6 @@
 #include "header.h"
 using namespace std;
-//односвязный список
+//РѕРґРЅРѕСЃРІСЏР·РЅС‹Р№ СЃРїРёСЃРѕРє
 template<typename T>
 class List
 {
@@ -22,9 +22,9 @@ private:
 	class Node
 	{
 	public:
-		//адрес следующего элемента
+		//Р°РґСЂРµСЃ СЃР»РµРґСѓСЋС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р°
 		Node *pNext;
-		//данные в элементе списка
+		//РґР°РЅРЅС‹Рµ РІ СЌР»РµРјРµРЅС‚Рµ СЃРїРёСЃРєР°
 		T data;
 		Node(T data = T(), Node* pNext = nullptr)
 		{
@@ -47,7 +47,7 @@ List<T>::~List()
 {
 	clear();
 }
-//удаление первого элекента списка
+//СѓРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРєРµРЅС‚Р° СЃРїРёСЃРєР°
 template<typename T>
 void List<T>::pop_front()
 {
@@ -56,7 +56,7 @@ void List<T>::pop_front()
 	delete temp;
 	size--;
 }
-//добавление элекента в конец списка
+//РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРєРµРЅС‚Р° РІ РєРѕРЅРµС† СЃРїРёСЃРєР°
 template<typename T>
 void List<T>::push_back(T data)
 {
@@ -75,7 +75,7 @@ void List<T>::push_back(T data)
 	}
 	size++;
 }
-//очистка списка
+//РѕС‡РёСЃС‚РєР° СЃРїРёСЃРєР°
 template<typename T>
 void List<T>::clear()
 {
@@ -84,20 +84,20 @@ void List<T>::clear()
 		pop_front();
 	}
 }
-//добавление элекента в начало списка
+//РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРєРµРЅС‚Р° РІ РЅР°С‡Р°Р»Рѕ СЃРїРёСЃРєР°
 template<typename T>
 void List<T>::push_front(T data)
 {
 	head = new Node<T>(data, head);
 	size++;
 }
-//удаление последнего элемента
+//СѓРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р°
 template<typename T>
 void List<T>::pop_back()
 {
 	removeAt(size - 1);
 }
-//вставить элемент по указанному индексу
+//РІСЃС‚Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РёРЅРґРµРєСЃСѓ
 template<typename T>
 void List<T>::insert(T data, int index)
 {
@@ -117,7 +117,7 @@ void List<T>::insert(T data, int index)
 	}
 
 }
-//удалить элемент по указанному индексу
+//СѓРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РёРЅРґРµРєСЃСѓ
 template<typename T>
 void List<T>::removeAt(int index)
 {
@@ -138,7 +138,7 @@ void List<T>::removeAt(int index)
 		size--;
 	}
 }
-//перегрузка оператора [] для обращения к элементам списка
+//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° [] РґР»СЏ РѕР±СЂР°С‰РµРЅРёСЏ Рє СЌР»РµРјРµРЅС‚Р°Рј СЃРїРёСЃРєР°
 template<typename T>
 T& List<T>::operator[](const int index)
 {
@@ -155,7 +155,7 @@ T& List<T>::operator[](const int index)
 	}
 }
 
-void SinglyLinkedList()//команда консоли: -sl
+void SinglyLinkedList()//РєРѕРјР°РЅРґР° РєРѕРЅСЃРѕР»Рё: -sl
 {
 	List<int> lst;
 	int numbersCount = 3;

@@ -2,19 +2,19 @@
 #include <thread>
 #include <chrono>
 using namespace std;
-//работа с потоками
+//СЂР°Р±РѕС‚Р° СЃ РїРѕС‚РѕРєР°РјРё
 
-//эмуляция тяжёлой задачи
+//СЌРјСѓР»СЏС†РёСЏ С‚СЏР¶С‘Р»РѕР№ Р·Р°РґР°С‡Рё
 void DoWork()
 {
 	for (size_t i = 0; i < 10; i++)
 	{
-		cout << "ID потока = " << this_thread::get_id() << " DoWork " << i << endl;
+		cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " DoWork " << i << endl;
 		this_thread::sleep_for(chrono::milliseconds(1000));
 	}
 }
 
-//эмуляция тяжёлой задачи с передачей параметров
+//СЌРјСѓР»СЏС†РёСЏ С‚СЏР¶С‘Р»РѕР№ Р·Р°РґР°С‡Рё СЃ РїРµСЂРµРґР°С‡РµР№ РїР°СЂР°РјРµС‚СЂРѕРІ
 void DoWorker(int a, int b)
 {
 	this_thread::sleep_for(chrono::milliseconds(3000));
@@ -25,57 +25,57 @@ void DoWorker(int a, int b)
 	cout << "============" << "DoWorker End" << endl;
 }
 
-//эмуляция тяжёлой задачи с возвратом значения по ссылке
+//СЌРјСѓР»СЏС†РёСЏ С‚СЏР¶С‘Р»РѕР№ Р·Р°РґР°С‡Рё СЃ РІРѕР·РІСЂР°С‚РѕРј Р·РЅР°С‡РµРЅРёСЏ РїРѕ СЃСЃС‹Р»РєРµ
 void DoWorkerer(int &a)
 {
 	this_thread::sleep_for(chrono::milliseconds(3000));
-	cout << "ID потока = " << this_thread::get_id() << "============" << "DoWorkerer Start" << endl;
+	cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << "============" << "DoWorkerer Start" << endl;
 
 	this_thread::sleep_for(chrono::milliseconds(5000));
 	a *= 2;
 	cout << "============" << "DoWorkerer End" << endl;
 }
 
-//эмуляция тяжёлой задачи с возвратом результата
+//СЌРјСѓР»СЏС†РёСЏ С‚СЏР¶С‘Р»РѕР№ Р·Р°РґР°С‡Рё СЃ РІРѕР·РІСЂР°С‚РѕРј СЂРµР·СѓР»СЊС‚Р°С‚Р°
 int Sum(int a, int b)
 {
 	this_thread::sleep_for(chrono::milliseconds(2000));
-	cout << "ID потока = " << this_thread::get_id() << " ======================Sum start" << endl;
+	cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================Sum start" << endl;
 	this_thread::sleep_for(chrono::milliseconds(5000));
-	cout << "ID потока = " << this_thread::get_id() << " ======================Sum stop" << endl;
+	cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================Sum stop" << endl;
 	return a + b;
 }
 
-void Thread()// команда консоли : -t
+void Thread()// РєРѕРјР°РЅРґР° РєРѕРЅСЃРѕР»Рё : -t
 {
-	//использование лямбда выражения
+	//РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ Р»СЏРјР±РґР° РІС‹СЂР°Р¶РµРЅРёСЏ
 	int result;
 	thread t([&result]()
 		{
 			result = Sum(2, 5); 
 		});
 
-	//передача параметра по ссылке в поток
+	//РїРµСЂРµРґР°С‡Р° РїР°СЂР°РјРµС‚СЂР° РїРѕ СЃСЃС‹Р»РєРµ РІ РїРѕС‚РѕРє
 	int q = 5;
 	thread th(DoWorkerer, std::ref(q));
 
-	//передача выполнения функции в отдельный поток с параметрами
+	//РїРµСЂРµРґР°С‡Р° РІС‹РїРѕР»РЅРµРЅРёСЏ С„СѓРЅРєС†РёРё РІ РѕС‚РґРµР»СЊРЅС‹Р№ РїРѕС‚РѕРє СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	thread th1(DoWorker, 5, 6);
 
-	//передача выполнения функции в отдельный поток
+	//РїРµСЂРµРґР°С‡Р° РІС‹РїРѕР»РЅРµРЅРёСЏ С„СѓРЅРєС†РёРё РІ РѕС‚РґРµР»СЊРЅС‹Р№ РїРѕС‚РѕРє
 	thread th2(DoWork);
 
-	//отправляем в свободное выполнение(вариант)
+	//РѕС‚РїСЂР°РІР»СЏРµРј РІ СЃРІРѕР±РѕРґРЅРѕРµ РІС‹РїРѕР»РЅРµРЅРёРµ(РІР°СЂРёР°РЅС‚)
 	//th.detach();
 	
-	//эмуляция основной задачи
+	//СЌРјСѓР»СЏС†РёСЏ РѕСЃРЅРѕРІРЅРѕР№ Р·Р°РґР°С‡Рё
 	for (size_t i = 0; i < 10; i++)
 	{
-		cout << "ID потока = " << this_thread::get_id() << " main " << i << endl;
+		cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " main " << i << endl;
 		this_thread::sleep_for(chrono::milliseconds(500));
 	}
 
-	//ждём когда закончит работать(вариант)
+	//Р¶РґС‘Рј РєРѕРіРґР° Р·Р°РєРѕРЅС‡РёС‚ СЂР°Р±РѕС‚Р°С‚СЊ(РІР°СЂРёР°РЅС‚)
 	t.join();
 	cout << "Sum result = " << result << endl;
 	th.join();

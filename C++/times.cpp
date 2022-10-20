@@ -1,40 +1,40 @@
 #include "header.h"
 #include <thread>
 using namespace std;
-//время выполнения участка кода(2 часть thread)
+//РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СѓС‡Р°СЃС‚РєР° РєРѕРґР°(2 С‡Р°СЃС‚СЊ thread)
 
-//отдельный класс для передачи его методов в отдельный поток
+//РѕС‚РґРµР»СЊРЅС‹Р№ РєР»Р°СЃСЃ РґР»СЏ РїРµСЂРµРґР°С‡Рё РµРіРѕ РјРµС‚РѕРґРѕРІ РІ РѕС‚РґРµР»СЊРЅС‹Р№ РїРѕС‚РѕРє
 class MyTestThread
 {
 public:
 	void DoWork()
 	{
 		this_thread::sleep_for(chrono::milliseconds(2000));
-		cout << "ID потока = " << this_thread::get_id() << " ======================DoWork Test Start" << endl;
+		cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================DoWork Test Start" << endl;
 		this_thread::sleep_for(chrono::milliseconds(5000));
-		cout << "ID потока = " << this_thread::get_id() << " ======================DoWork Test Stop" << endl;
+		cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================DoWork Test Stop" << endl;
 	}
 
 	void DoWork2(int a)
 	{
 		this_thread::sleep_for(chrono::milliseconds(2000));
-		cout << "ID потока = " << this_thread::get_id() << " ======================DoWork2 Test Start" << endl;
+		cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================DoWork2 Test Start" << endl;
 		this_thread::sleep_for(chrono::milliseconds(5000));
 		cout << "DoWork2 param =\t" << a << endl;
-		cout << "ID потока = " << this_thread::get_id() << " ======================DoWork2 Test Stop" << endl;
+		cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================DoWork2 Test Stop" << endl;
 	}
 
 	int Sum(int a, int b)
 	{
 		this_thread::sleep_for(chrono::milliseconds(2000));
-		cout << "ID потока = " << this_thread::get_id() << " ======================Sum Test start" << endl;
+		cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================Sum Test start" << endl;
 		this_thread::sleep_for(chrono::milliseconds(5000));
-		cout << "ID потока = " << this_thread::get_id() << " ======================Sum Test stop" << endl;
+		cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================Sum Test stop" << endl;
 		return a + b;
 	}
 };
 
-//отдельный класс для подсчёта времени работы кода
+//РѕС‚РґРµР»СЊРЅС‹Р№ РєР»Р°СЃСЃ РґР»СЏ РїРѕРґСЃС‡С‘С‚Р° РІСЂРµРјРµРЅРё СЂР°Р±РѕС‚С‹ РєРѕРґР°
 class SimpleTimer
 {
 public:
@@ -52,36 +52,36 @@ private:
 	std::chrono::time_point<std::chrono::steady_clock> start, end;
 };
 
-//эмуляция тяжёлой задачи с возвратом результата
+//СЌРјСѓР»СЏС†РёСЏ С‚СЏР¶С‘Р»РѕР№ Р·Р°РґР°С‡Рё СЃ РІРѕР·РІСЂР°С‚РѕРј СЂРµР·СѓР»СЊС‚Р°С‚Р°
 int Sums(int a, int b)
 {
-	//используем класс для измерения времени функции
+	//РёСЃРїРѕР»СЊР·СѓРµРј РєР»Р°СЃСЃ РґР»СЏ РёР·РјРµСЂРµРЅРёСЏ РІСЂРµРјРµРЅРё С„СѓРЅРєС†РёРё
 	SimpleTimer st;
 
 	this_thread::sleep_for(chrono::milliseconds(2500));
-	cout << "ID потока = " << this_thread::get_id() << " ======================Sum start" << endl;
+	cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================Sum start" << endl;
 	this_thread::sleep_for(chrono::milliseconds(5500));
-	cout << "ID потока = " << this_thread::get_id() << " ======================Sum stop" << endl;
+	cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " ======================Sum stop" << endl;
 	return a + b;
 }
 
-void Times()// команда консоли : -ti
+void Times()// РєРѕРјР°РЅРґР° РєРѕРЅСЃРѕР»Рё : -ti
 {
-	//переменная со значением времени начала выполнения программы
+	//РїРµСЂРµРјРµРЅРЅР°СЏ СЃРѕ Р·РЅР°С‡РµРЅРёРµРј РІСЂРµРјРµРЅРё РЅР°С‡Р°Р»Р° РІС‹РїРѕР»РЅРµРЅРёСЏ РїСЂРѕРіСЂР°РјРјС‹
 	//auto start = chrono::high_resolution_clock::now();
 	
-	//используем класс для измерения времени
+	//РёСЃРїРѕР»СЊР·СѓРµРј РєР»Р°СЃСЃ РґР»СЏ РёР·РјРµСЂРµРЅРёСЏ РІСЂРµРјРµРЅРё
 	SimpleTimer st;
 
 	int resSumTest;
 	MyTestThread mt;
-	//передача в поток void метода класса
+	//РїРµСЂРµРґР°С‡Р° РІ РїРѕС‚РѕРє void РјРµС‚РѕРґР° РєР»Р°СЃСЃР°
 	thread tcd(&MyTestThread::DoWork, mt);
 
-	//передача в поток void метода класса с параметрами
+	//РїРµСЂРµРґР°С‡Р° РІ РїРѕС‚РѕРє void РјРµС‚РѕРґР° РєР»Р°СЃСЃР° СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	thread tcd2(&MyTestThread::DoWork2, mt, 5);
 
-	//передача в поток метода класса с возвращаемым значением
+	//РїРµСЂРµРґР°С‡Р° РІ РїРѕС‚РѕРє РјРµС‚РѕРґР° РєР»Р°СЃСЃР° СЃ РІРѕР·РІСЂР°С‰Р°РµРјС‹Рј Р·РЅР°С‡РµРЅРёРµРј
 	thread tcs([&]()
 		{
 			resSumTest = mt.Sum(2, 5);
@@ -90,10 +90,10 @@ void Times()// команда консоли : -ti
 	int result;
 	thread t([&result]() { result = Sums(2, 5); });
 
-	//эмуляция основной задачи
+	//СЌРјСѓР»СЏС†РёСЏ РѕСЃРЅРѕРІРЅРѕР№ Р·Р°РґР°С‡Рё
 	for (size_t i = 0; i < 15; i++)
 	{
-		cout << "ID потока = " << this_thread::get_id() << " main " << i << endl;
+		cout << "ID РїРѕС‚РѕРєР° = " << this_thread::get_id() << " main " << i << endl;
 		this_thread::sleep_for(chrono::milliseconds(500));
 	}
 	t.join();
@@ -103,7 +103,7 @@ void Times()// команда консоли : -ti
 	cout << "Sum Result = " << result << endl;
 	cout << "Sum Test Result = " << resSumTest << endl;
 
-	/*переменная со значением времени конца выполнения программы
+	/*РїРµСЂРµРјРµРЅРЅР°СЏ СЃРѕ Р·РЅР°С‡РµРЅРёРµРј РІСЂРµРјРµРЅРё РєРѕРЅС†Р° РІС‹РїРѕР»РЅРµРЅРёСЏ РїСЂРѕРіСЂР°РјРјС‹
 	auto end = chrono::high_resolution_clock::now();
 	chrono::duration<float> duration = end - start;
 	cout << "Duration " << duration.count() << "s" << endl;*/
