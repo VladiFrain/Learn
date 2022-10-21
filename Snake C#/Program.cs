@@ -7,14 +7,8 @@
             //Console.SetBufferSize(80,25);
 
             //Отрисовка рамочки
-            HorizontalLine topLine = new HorizontalLine(xLeft: 0, xRight: 78, y: 0, sym: '+');
-            HorizontalLine bottomLine = new HorizontalLine(xLeft: 0, xRight: 78, y: 24, sym: '+');
-            VerticalLine leftLine = new VerticalLine(yTop: 0, yBottom: 24, x: 0, sym: '+');
-            VerticalLine rightLine = new VerticalLine(yTop: 0, yBottom: 24, x: 78, sym: '+');
-            topLine.Draw();
-            bottomLine.Draw();
-            leftLine.Draw();
-            rightLine.Draw();
+            Walls walls = new Walls(80,25);
+            walls.Draw();            
 
             //Отрисовка точек
             Point p = new Point(x: 4, y: 5, sym: '*');
@@ -27,6 +21,10 @@
 
             while(true)
             {
+                if(walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
                 if(snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();

@@ -2,8 +2,8 @@ namespace Snake
 {
     class Point
     {
-        public int x;
-        public int y;
+        private int x;
+        private int y;
         public char sym;
         public Point(int x, int y, char sym)
         {
