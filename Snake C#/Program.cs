@@ -21,7 +21,18 @@
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Drow();
 
-            Console.ReadLine();         
+            while(true)
+            {
+                if(Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HadleKey(key.Key);
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
+
+            //Console.ReadLine();         
         }
     }
 }
