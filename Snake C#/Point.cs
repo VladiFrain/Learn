@@ -2,6 +2,9 @@ namespace Snake
 {
     class Point
     {
+        public int x;
+        public int y;
+        public char sym;
         public Point(int x, int y, char sym)
         {
             this.x = x;
@@ -13,18 +16,6 @@ namespace Snake
             this.x = p.x;
             this.y = p.y;
             this.sym = p.sym;
-        }
-        public int X
-        {
-            get { return x; }
-        }
-        public int Y
-        {
-            get { return y; }
-        }
-        public char SYM
-        {
-            get { return sym; }
         }
         public void Draw()
         {
@@ -59,8 +50,9 @@ namespace Snake
         {
             return x + ", " + y + ", " + sym;
         }
-        private int x;
-        private int y;
-        private char sym;
+        public bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
     }
 }
