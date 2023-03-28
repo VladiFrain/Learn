@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:NameBook"
         mc:Ignorable="d"
         xmlns:asyncCustomCommand="clr-namespace:AsyncCustomCommand"
-        Title="MainWindow" Height="450" Width="800">
+        Title="NameBook" Height="450" Width="800">
         <Window.Resources>
         <asyncCustomCommand:MainWindowViewModel x:Key="ViewModel"/>
     </Window.Resources>
@@ -23,9 +23,39 @@
         <Button Content="Add" 
                 Height="23" 
                 Grid.Column="1" 
+                Grid.Row="0" 
+                Margin="5" 
+                Command="{Binding ButtonAddClick}" 
+                CommandParameter="{Binding CurrentName}" 
+                IsEnabled="{Binding IsButtonEnabled}">
+            <Button.ToolTip>
+                <StackPanel>
+                    <Label FontWeight="Bold" 
+                           Background="Blue" 
+                           Foreground="White">
+                        Clicked add
+                    </Label>
+                    <TextBlock Padding="10" 
+                               TextWrapping="WrapWithOverflow" 
+                               Width="200">
+                        The button add parent wrick!
+                    </TextBlock>
+                    <Line Stroke="Black" 
+                          StrokeThickness="1" X2="200"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="2" 
+                               Source="help.png"/>
+                        <Label>Press F1 for more help.</Label>
+                    </StackPanel>
+                </StackPanel>
+            </Button.ToolTip>
+        </Button>
+        <Button Content="Clear" 
+                Height="23" 
+                Grid.Column="1" 
                 Grid.Row="1" 
                 Margin="5" 
-                Command="{Binding ButtonClick}" 
+                Command="{Binding ButtonClearClick}" 
                 CommandParameter="{Binding CurrentName}" 
                 IsEnabled="{Binding IsButtonEnabled}">
             <Button.ToolTip>
