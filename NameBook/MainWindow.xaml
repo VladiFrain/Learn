@@ -20,43 +20,75 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <Button Content="Add" 
-                Height="23" 
-                Grid.Column="1" 
-                Grid.Row="0" 
-                Margin="5" 
-                Command="{Binding ButtonAddClick}" 
-                CommandParameter="{Binding CurrentName}" 
-                IsEnabled="{Binding IsButtonEnabled}">
-            <Button.ToolTip>
-                <StackPanel>
-                    <Label FontWeight="Bold" 
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center"
+                    Grid.Column="1"
+                    Grid.Row="0" >
+            <Button Content="Add" 
+                    Height="23" 
+                    Width="80"
+                    Margin="5" 
+                    Command="{Binding ButtonAddClick}" 
+                    CommandParameter="{Binding CurrentName}" 
+                    IsEnabled="{Binding IsButtonEnabled}">
+                <Button.ToolTip>
+                    <StackPanel>
+                        <Label FontWeight="Bold" 
                            Background="Blue" 
                            Foreground="White">
-                        Clicked add
-                    </Label>
-                    <TextBlock Padding="10" 
+                            Clicked add
+                        </Label>
+                        <TextBlock Padding="10" 
                                TextWrapping="WrapWithOverflow" 
                                Width="200">
                         The button add parent wrick!
-                    </TextBlock>
-                    <Line Stroke="Black" 
+                        </TextBlock>
+                        <Line Stroke="Black" 
                           StrokeThickness="1" X2="200"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Margin="2" 
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="2" 
                                Source="help.png"/>
-                        <Label>Press F1 for more help.</Label>
+                            <Label>Press F1 for more help.</Label>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </Button.ToolTip>
-        </Button>
+                </Button.ToolTip>
+            </Button>
+            <Button Content="Delete" 
+                Height="23" 
+                    Width="80"
+                Margin="5" 
+                Command="{Binding ButtonDeleteClick}" 
+                CommandParameter="{Binding SelectedPerson}" 
+                IsEnabled="{Binding IsButtonEnabled}">
+                <Button.ToolTip>
+                    <StackPanel>
+                        <Label FontWeight="Bold" 
+                           Background="Blue" 
+                           Foreground="White">
+                            Clicked add
+                        </Label>
+                        <TextBlock Padding="10" 
+                               TextWrapping="WrapWithOverflow" 
+                               Width="200">
+                        The button add parent wrick!
+                        </TextBlock>
+                        <Line Stroke="Black" 
+                          StrokeThickness="1" X2="200"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="2" 
+                               Source="help.png"/>
+                            <Label>Press F1 for more help.</Label>
+                        </StackPanel>
+                    </StackPanel>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
         <Button Content="Clear" 
                 Height="23" 
                 Grid.Column="1" 
                 Grid.Row="1" 
                 Margin="5" 
                 Command="{Binding ButtonClearClick}" 
-                CommandParameter="{Binding CurrentName}" 
                 IsEnabled="{Binding IsButtonEnabled}">
             <Button.ToolTip>
                 <StackPanel>
@@ -83,7 +115,8 @@
         <ListBox Grid.Row="2" 
                  Grid.ColumnSpan="2" 
                  Margin="5" 
-                 ItemsSource="{Binding Persons}" />
+                 ItemsSource="{Binding Persons}"
+                 SelectedItem="{Binding SelectedPerson}" />
         <TextBox Height="23" 
                  Margin="10" 
                  Text="{Binding CurrentSurname}"/>

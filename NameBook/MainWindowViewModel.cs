@@ -63,11 +63,25 @@ namespace AsyncCustomCommand
             }
         }
 
+        private Person _selectedPerson;
+        public Person SelectedPerson
+        {
+            get => _selectedPerson;
+            set
+            {
+                _selectedPerson = value;
+                RaisePropertyChanged();
+            }
+        }
+
         private AsyncCustomCommand? _addCommand;
         public ICommand ButtonAddClick => _addCommand ??= new AsyncCustomCommand(Add);
 
+        private AsyncCustomCommand? _clearCommand;
+        public ICommand ButtonClearClick => _clearCommand ??= new AsyncCustomCommand(Clear);
+
         private AsyncCustomCommand? _deleteCommand;
-        public ICommand ButtonClearClick => _deleteCommand ??= new AsyncCustomCommand(Delete);
+        public ICommand ButtonDeleteClick => _deleteCommand ??= new AsyncCustomCommand(Delete);
 
         private async Task Add(object o)
         {
@@ -81,12 +95,24 @@ namespace AsyncCustomCommand
             this.IsButtonEnabled = true;
         }
 
-        private async Task Delete(object o)
+        private async Task Clear(object o)
         {
             this.IsButtonEnabled = false;
             await Task.Delay(3000);
 
             this.Persons.Clear();
+
+            this.CurrentName = "";
+            this.CurrentSurname = "";
+            this.IsButtonEnabled = true;
+        }
+
+        private async Task Delete(object o)
+        {
+            this.IsButtonEnabled = false;
+            await Task.Delay(3000);
+
+            this.Persons.Remove(o as Person);
 
             this.CurrentName = "";
             this.CurrentSurname = "";
