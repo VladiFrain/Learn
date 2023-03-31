@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaveRecWithEmguCV", "FaveRecWithEmguCV\FaveRecWithEmguCV.csproj", "{42CC0F4D-D8D4-4B0F-A324-1C78A1A34584}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindContours", "FindContours\FindContours.csproj", "{BD2B1F8E-C4C5-4F2F-B80C-7FCA54C245BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeRecognision", "ShapeRecognision\ShapeRecognision.csproj", "{04B753B8-F524-4CA8-881E-2A6A050C9871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeshehodDetection", "PeshehodDetection\PeshehodDetection.csproj", "{491F0A76-D721-40BE-88D7-9B1F25287625}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42CC0F4D-D8D4-4B0F-A324-1C78A1A34584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42CC0F4D-D8D4-4B0F-A324-1C78A1A34584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42CC0F4D-D8D4-4B0F-A324-1C78A1A34584}.Debug|x86.ActiveCfg = Debug|x86
+		{42CC0F4D-D8D4-4B0F-A324-1C78A1A34584}.Debug|x86.Build.0 = Debug|x86
+		{42CC0F4D-D8D4-4B0F-A324-1C78A1A34584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42CC0F4D-D8D4-4B0F-A324-1C78A1A34584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42CC0F4D-D8D4-4B0F-A324-1C78A1A34584}.Release|x86.ActiveCfg = Release|x86
+		{42CC0F4D-D8D4-4B0F-A324-1C78A1A34584}.Release|x86.Build.0 = Release|x86
+		{BD2B1F8E-C4C5-4F2F-B80C-7FCA54C245BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD2B1F8E-C4C5-4F2F-B80C-7FCA54C245BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD2B1F8E-C4C5-4F2F-B80C-7FCA54C245BB}.Debug|x86.ActiveCfg = Debug|x86
+		{BD2B1F8E-C4C5-4F2F-B80C-7FCA54C245BB}.Debug|x86.Build.0 = Debug|x86
+		{BD2B1F8E-C4C5-4F2F-B80C-7FCA54C245BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD2B1F8E-C4C5-4F2F-B80C-7FCA54C245BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD2B1F8E-C4C5-4F2F-B80C-7FCA54C245BB}.Release|x86.ActiveCfg = Release|x86
+		{BD2B1F8E-C4C5-4F2F-B80C-7FCA54C245BB}.Release|x86.Build.0 = Release|x86
+		{04B753B8-F524-4CA8-881E-2A6A050C9871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04B753B8-F524-4CA8-881E-2A6A050C9871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04B753B8-F524-4CA8-881E-2A6A050C9871}.Debug|x86.ActiveCfg = Debug|x86
+		{04B753B8-F524-4CA8-881E-2A6A050C9871}.Debug|x86.Build.0 = Debug|x86
+		{04B753B8-F524-4CA8-881E-2A6A050C9871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04B753B8-F524-4CA8-881E-2A6A050C9871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04B753B8-F524-4CA8-881E-2A6A050C9871}.Release|x86.ActiveCfg = Release|x86
+		{04B753B8-F524-4CA8-881E-2A6A050C9871}.Release|x86.Build.0 = Release|x86
+		{491F0A76-D721-40BE-88D7-9B1F25287625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{491F0A76-D721-40BE-88D7-9B1F25287625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{491F0A76-D721-40BE-88D7-9B1F25287625}.Debug|x86.ActiveCfg = Debug|x86
+		{491F0A76-D721-40BE-88D7-9B1F25287625}.Debug|x86.Build.0 = Debug|x86
+		{491F0A76-D721-40BE-88D7-9B1F25287625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{491F0A76-D721-40BE-88D7-9B1F25287625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{491F0A76-D721-40BE-88D7-9B1F25287625}.Release|x86.ActiveCfg = Release|x86
+		{491F0A76-D721-40BE-88D7-9B1F25287625}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3332354B-722C-4589-A066-0576583D51C7}
+	EndGlobalSection
+EndGlobal
