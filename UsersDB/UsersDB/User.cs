@@ -84,5 +84,18 @@ namespace UsersDB
 
             return users;
         }
+
+        internal static List<User> SearchUsers(string name)
+        {
+            using ApplicationContext db = new();
+            List<User> listUsers = new();
+            var res = db.Users.Include(p => p.Team).Where(p => EF.Functions.Like(p.Name, name));
+            foreach (var item in res)
+            {
+                listUsers.Add(item);
+            }
+
+            return listUsers;
+        }
     }
 }

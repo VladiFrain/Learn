@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace UsersDB
             {
                 Console.WriteLine();
                 Console.WriteLine("Выберите функцию:");
+                Console.WriteLine("0. Найти пользователей по имени");
                 Console.WriteLine("1. Показать пользователей");
                 Console.WriteLine("2. Показать команды");
                 Console.WriteLine("3. Создать новую команду");
@@ -27,6 +29,9 @@ namespace UsersDB
                 int select = int.Parse(Console.ReadLine());
                 switch (select)
                 {
+                    case 0:
+                        SearchUser();
+                        break;
                     case 1:
                         Console.Clear();
                         PrintUsers();
@@ -66,6 +71,17 @@ namespace UsersDB
                         Console.WriteLine("Не верный выбор!");
                         break;
                 }
+            }
+        }
+
+        private static void SearchUser()
+        {
+            Console.Write("Введите имя: ");
+            string? name = Console.ReadLine();
+            var res = User.SearchUsers(name);
+            foreach (var item in res)
+            {
+                Console.WriteLine(item);
             }
         }
 
